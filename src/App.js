@@ -9,7 +9,7 @@ import ScriptContainer from './components/ScriptContainer'
 import Footer from './components/Footer'
 import ScriptView from './components/ScriptView'
 
-let baseUrl = 'http://localhost:8000'
+let baseUrl = 'http://localhost:3001'
 
 export default function App() {
   const [scripts, setScripts] = useState([])
@@ -62,6 +62,7 @@ export default function App() {
       if (response.status === 200) {
         getScripts()
         navigate("scripts")
+        
       }
     }
     catch (err) {
