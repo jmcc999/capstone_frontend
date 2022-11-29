@@ -34,7 +34,6 @@ export default function App() {
       })
   }
 
-
   const loginUser = async (e) => {
     console.log('loginUser')
     console.log(e.target.email.value)
@@ -46,7 +45,6 @@ export default function App() {
       email: e.target.email.value
     }
     try {
-
       const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(loginBody),
@@ -73,7 +71,7 @@ export default function App() {
   const register = async (e) => {
     e.preventDefault()
     console.log(e.target)
-    const url = baseUrl + '/api/v1/user/register'
+    const url = baseUrl + '/user/register'
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -111,13 +109,9 @@ export default function App() {
         <Route path="register" element={<RegisterUser register={register} />} />
         <Route path="login" element={<LoginUser loginUser={loginUser} />} />
         <Route path="scripts" element={<ScriptContainer scripts={scripts} />} />
-        {/* not mandatory to put a "/" at the beginning of a route */}
         <Route path="/scripts/:id" element={<ScriptView />} />
       </Routes>
-      {/* <Home />
-      <RegisterUser register={register}/>
-      <LoginUser loginUser={loginUser}/>
-      <DogContainer scripts={scripts}/> */}
+      
       <Footer />
     </div>
   );

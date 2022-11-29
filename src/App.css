@@ -1,4 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
 body {
+  font-family: 'Libre Baskerville', serif;
   color: rgb(54, 49, 49);
   background-image: url(rximg.jpg);
   background-repeat: no-repeat;
@@ -52,10 +56,10 @@ main {
   padding: 0.5em 0.5em;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 form {
   display: flex;
@@ -74,7 +78,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: grey;
+  background-color: rgba(50.2, 50.2, 50.2, .2) ;
   padding: 10px;
 }
 

@@ -14,17 +14,17 @@ const ScriptContainer = (props) =>{
             <th>Info</th>
             <th>Pharmacy</th>
           </tr>
-            { props.scripts.map((script, i) => {
+            { props.scripts.map((scripts, i) => {
                 return (
-                  <tr key={script.id}>
-                    <td style={{textDecoration: "underline", color: "blue"}} onClick={()=>{navigate(`${script.id}`)}}>
-                    { script.name }
+                  <tr key={scripts.id}>
+                    <td style={{textDecoration: "underline", color: "blue"}} onClick={()=>{navigate(`${scripts.id}`)}}>
+                    { scripts.name }
                     </td>
                     <td>
-                     { script.breed }
+                     { scripts.NDC }
                     </td>
                     <td>
-                     { script.owner }
+                     { scripts.Pharmacy }
                     </td>
                   </tr>
                 )
