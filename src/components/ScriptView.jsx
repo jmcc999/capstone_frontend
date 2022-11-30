@@ -6,11 +6,11 @@ const ScriptView = (props) => {
     let [scripts, setScript] = useState({});
     let {id} = useParams()
     
-    let baseUrl = 'http://localhost:8000'
+    let baseUrl = 'http://localhost:3001'
 
     const getOneScriptById = (id) => {
         // fetch to the backend
-        fetch(baseUrl + "/scripts/" + id,{
+        fetch(baseUrl + "/scripts" + id,{
           credentials: "include"
         })
         .then(res => {
@@ -31,10 +31,11 @@ const ScriptView = (props) => {
 
     return(
         <>
-        <img src="https://cdn0.iconfinder.com/data/icons/script-and-cat-4/64/12-siberian_husky-canine-puppy-pets-avatar-animals-animal-script-512.png"></img>
+        <td onClick={() => this.handleDelete(holiday._id)}>X</td>
         <h1>{scripts.name}</h1>
         <h2>Pharmacy:</h2><h3>{scripts.Pharmacy}</h3>
         <h2>NDC</h2><h3>{scripts.NDC}</h3>
+
         </>
     )
 }

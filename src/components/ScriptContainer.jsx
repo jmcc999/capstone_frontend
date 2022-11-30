@@ -17,7 +17,7 @@ const ScriptContainer = (props) =>{
             { props.scripts.map((scripts, i) => {
                 return (
                   <tr key={scripts.id}>
-                    <td style={{textDecoration: "underline", color: "blue"}} onClick={()=>{navigate(`${scripts.id}`)}}>
+                    <td style={{textDecoration: "underline"}} onClick={()=>{navigate(`${scripts.id}`)}}>
                     { scripts.name }
                     </td>
                     <td>
@@ -28,7 +28,7 @@ const ScriptContainer = (props) =>{
                     </td>
                   </tr>
                 )
-              })
+               })
             }
           </tbody>
         </table>

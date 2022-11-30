@@ -6,7 +6,7 @@ import Home from './components/Home'
 import LoginUser from './components/LoginUser'
 import RegisterUser from './components/RegisterUser'
 import ScriptContainer from './components/ScriptContainer'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import ScriptView from './components/ScriptView'
 
 let baseUrl = 'http://localhost:3001'
@@ -19,8 +19,8 @@ export default function App() {
 
   const getScripts = () => {
     // fetch to the backend
-    fetch(baseUrl + "/api/v1/scripts/", {
-      credentials: "include"
+    fetch(baseUrl + "/scripts", {
+      // credentials: "include"
     })
       .then(res => {
         if (res.status === 200) {
@@ -34,17 +34,19 @@ export default function App() {
       })
   }
 
+
   const loginUser = async (e) => {
     console.log('loginUser')
     console.log(e.target.email.value)
     e.preventDefault()
-    const url = baseUrl + '/api/v1/user/login'
+    const url = baseUrl + '/user/login'
     const loginBody = {
       username: e.target.username.value,
       password: e.target.password.value,
       email: e.target.email.value
     }
     try {
+
       const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(loginBody),
@@ -88,7 +90,7 @@ export default function App() {
       if (response.status === 201) {
         console.log("worked register")
         getScripts()
-        navigate("login")
+        navigate("login") 
       }
     }
     catch (err) {
@@ -96,6 +98,25 @@ export default function App() {
     }
   }
 
+  const handleAddScript = (script) => {
+    const copyScript = [...this.state.scripts]
+    copyScript.unshift(script)
+    this.setState({script: copyScript})
+  }
+
+  const handleDelete = (id) => {
+		fetch(baseUrl + id, {
+			method: 'DELETE',
+			credentials: "include"
+		}).then( res => {
+			const copyScript = [...this.state.scripts];
+			const findIndex = this.state.scripts.findIndex(
+					(script) => script._id === id
+				);
+			 copyScript.splice(findIndex, 1);
+			 this.setState({ scripts: copyScripts });
+		})
+	}
 
   useEffect(() => {
     getScripts()
@@ -112,7 +133,7 @@ export default function App() {
         <Route path="/scripts/:id" element={<ScriptView />} />
       </Routes>
       
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
