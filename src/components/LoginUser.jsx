@@ -1,5 +1,4 @@
 
-   
 export default function LoginUser(props) {
     return(
       <form onSubmit={props.loginUser}>
