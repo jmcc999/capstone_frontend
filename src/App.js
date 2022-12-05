@@ -9,7 +9,6 @@ import ScriptContainer from './components/ScriptContainer'
 // import Footer from './components/Footer'
 import ScriptView from './components/ScriptView'
 
-
 let baseUrl = 'http://localhost:3001'
 
 export default function App() {
