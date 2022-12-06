@@ -7,8 +7,6 @@ const ScriptView = (props) => {
     let [scripts, setScript] = useState({});
     let {id} = useParams()
     
-
-  
     let baseUrl = 'http://localhost:3001'
 
     const getOneScriptById = (id) => {

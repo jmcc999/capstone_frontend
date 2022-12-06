@@ -5,6 +5,7 @@ const ScriptContainer = (props) =>{
 
     const navigate = useNavigate()
 
+    
     return (
       <>
         <h2> Perscriptions List </h2>
